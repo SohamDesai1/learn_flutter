@@ -1,5 +1,6 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
-import 'package:untitled/demo.dart';
 void main() => runApp(const MaterialApp(
   home: Page1(),
 ));
@@ -81,7 +82,7 @@ class _Page1State extends State<Page1> {
               height: 20,
             ),
            TextButton(onPressed: (){
-             Navigator.push(context, MaterialPageRoute(builder: (context) => Page()));
+            //  Navigator.push(context, MaterialPageRoute(builder: (context) => Page()));
            }, child: Text("dwsd"))
           ],
         ),
