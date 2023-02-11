@@ -1,4 +1,4 @@
-// ignore_for_file: prefer_const_constructors, camel_case_types
+// ignore_for_file: prefer_const_constructors, camel_case_types, avoid_print
 
 import 'package:flutter/material.dart';
 
@@ -30,14 +30,31 @@ class _Date_pickerState extends State<Date_picker> {
               style: TextStyle(fontSize: 25),
             ),
             ElevatedButton(
+              onPressed: () async {
+                DateTime? datePicker = await showDatePicker(
+                    context: context,
+                    initialDate: DateTime.now(),
+                    firstDate: DateTime(2020),
+                    lastDate: DateTime(2024));
+                if (datePicker != null) {
+                  print(datePicker);
+                }
+              },
+              child: Text("show"),
+            ),
+            ElevatedButton(
                 onPressed: () async {
-                  DateTime? date_picker = await showDatePicker(
-                      context: context,
-                      initialDate: DateTime.now(),
-                      firstDate: DateTime(2020),
-                      lastDate: DateTime(2024));
+                  var timePicker = await showTimePicker(
+                    context: context,
+                    initialTime: TimeOfDay.now(),
+                    initialEntryMode: TimePickerEntryMode.dial,
+                  );
+                  if (timePicker != null) {
+                    print(
+                        "${timePicker.hourOfPeriod}:${timePicker.minute}");
+                  }
                 },
-                child: Text("show")),
+                child: Text("show time"))
           ],
         ),
       ),
